@@ -1,0 +1,17 @@
+  {% load staticfiles %}
+
+  <div>
+        <h1><a href="/">Instrumentos Musicales</a></h1>
+    </div>
+
+    {% for post in publicacion %}
+        <div>
+            <h1><a href="">{{ post.nombre }}</a></h1>
+            <p>
+            <h3>Marca:{{post.marca }}</h3>
+            <p>{{ post.descripcion|linebreaks }}</p>
+            <img src="{% static post.imagen_instrumento %}"  style="width:200px;height:200px"/>
+            <p>Fecha de publicacion: {{ post.fecha_publicacion }}</p>
+            </p>
+        </div>
+    {% endfor %}

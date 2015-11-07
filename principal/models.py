@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from django.db.models.signals import pre_delete, pre_save
+from django.dispatch import receiver
 
 # Create your models here.
 class Instrumento(models.Model):
@@ -15,6 +17,10 @@ class Instrumento(models.Model):
 
     def __str__(self):
         return self.nombre
+ 
+@receiver(pre_delete, sender=Instrumento)
+def post_pre_delete_handler(sender, instance, **kwargs):
+    instance.imagen_instrumento.delete(False)
 
     def publicar(self):
         self.fecha_publicacion= timezone.now()
@@ -26,3 +32,5 @@ class Categoria(models.Model):
 
     def __str__(self):
         return self.nombre
+
+
