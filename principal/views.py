@@ -8,3 +8,7 @@ from .models import Instrumento
 def listar_publicaciones(request):
     publicacion= Instrumento.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('fecha_publicacion')
     return render(request, 'principal/index.html', {'publicacion':publicacion})
+
+def detalle_publicacion(request, pk):
+    post = get_object_or_404(Instrumento, pk=pk)
+    return render(request, 'principal/detalle_publicacion.html', {'post': post})
