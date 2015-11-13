@@ -38,3 +38,8 @@ def nueva_publicacion(request):
     else:
         form = PostForm()
     return render(request, 'principal/nueva_publicacion.html', {'form': form})
+
+
+def eliminar_publicacion(request, pk):
+    note = get_object_or_404(Instrumento, pk=pk).delete()
+    return redirect('principal.views.listar_publicaciones')

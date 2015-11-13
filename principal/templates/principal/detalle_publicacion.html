@@ -3,6 +3,7 @@
 
 {% block content %}
 			<a class="btn btn-default" href="{% url "editar_publicacion" pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+			<a class="btn btn-default" href="{% url "eliminar_publicacion" pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
             <img src="{% static post.imagen_instrumento %}" style="width:200px;height:200px;float: left;" />
             <h2 class="blog-post-title"><a href="{% url 'principal.views.detalle_publicacion' pk=post.pk %}">{{ post.nombre }}</a></h2>
             <h3>Marca:{{post.marca }}</h3>
