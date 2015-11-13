@@ -10,11 +10,10 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Intrumentos JR</title>
+    <title>Intrumentos | JR</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="{% static "bootstrap/css/blog.css" %}" rel="stylesheet">
 
@@ -28,13 +27,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -43,7 +42,7 @@
       <div class="container">
         <nav class="blog-nav">
           <a class="blog-nav-item active" href="{% url 'principal.views.listar_publicaciones'%}">Inicio</a>
-          <a class="blog-nav-item" href="#">Nuevo</a>
+          <a class="blog-nav-item" href="{% url 'principal.views.nueva_publicacion' %}">Nuevo</a>
           <a class="blog-nav-item" href="#">Contacto</a>
           <a class="blog-nav-item" href="#">Acerca de</a>
         </nav>
@@ -51,31 +50,28 @@
     </div>
 
     <div class="container">
-
       <div class="blog-header">
         <h1 class="blog-title">Bienvenidos</h1>
         <p class="lead blog-description">Pagina oficial de Instrumentos Musicales JR</p>
       </div>
 
       <div class="row">
-
-        <div class="col-sm-8 blog-main">
-
+        <div class="col-lg-10">
           <div class="blog-post">
-          {% block content %}
-          {% endblock %}  
+            {% block content %}
+            {% endblock %}  
           </div><!-- /.blog-post -->
         </div><!-- /.blog-main -->
-        <div class="sidebar-module">
+
+       <div class="sidebar-module">
           <div class="sidebar-module">
-          <h4>Otros sitios</h4>
-            <ol class="list-unstyled">
-              <li><a href="https://github.com/jramirez18/sitio-web">GitHub</a></li>
-            </ol>
+            <h4>Otros sitios</h4>
+              <ol class="list-unstyled">
+                <li><a href="https://github.com/jramirez18/sitio-web">GitHub</a></li>
+              </ol>
           </div>
         </div><!-- /.blog-sidebar -->
       </div><!-- /.row -->
-
     </div><!-- /.container -->
 
     <footer class="blog-footer">
@@ -84,8 +80,6 @@
         <a href="#">Volver arriba</a>
       </p>
     </footer>
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
