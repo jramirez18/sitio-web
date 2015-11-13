@@ -42,4 +42,4 @@ def nueva_publicacion(request):
 
 def eliminar_publicacion(request, pk):
     note = get_object_or_404(Instrumento, pk=pk).delete()
-    return redirect('principal.views.listar_publicaciones')
+    return render(request, 'principal/eliminar_publicacion.html')
