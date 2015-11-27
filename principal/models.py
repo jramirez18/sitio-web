@@ -5,6 +5,7 @@ from django.dispatch import receiver
 
 # Create your models here.
 class Instrumento(models.Model):
+    autor = models.ForeignKey('auth.User', null = True, blank=True)
     nombre = models.CharField("Nombre", max_length=100)
     marca= models.CharField("Marca", max_length=100)
     categoria= models.ForeignKey('Categoria')

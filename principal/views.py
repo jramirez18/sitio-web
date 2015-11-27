@@ -22,39 +22,43 @@ def detalle_publicacion(request, pk):
     post = get_object_or_404(Instrumento, pk=pk)
     return render(request, 'principal/detalle_publicacion.html', {'post': post})
 
+@login_required(login_url='/login')
 def editar_publicacion(request, pk):
         post = get_object_or_404(Instrumento, pk=pk)
         if request.method == "POST":
             form = PostForm(request.POST, request.FILES, instance=post)
             if form.is_valid():
                 post = form.save(commit=False)
-                #post.nombre = request.user
+                post.autor = request.user
                 post.save()
                 return redirect('principal.views.detalle_publicacion', pk=post.pk)
         else:
             form = PostForm(instance=post)
         return render(request, 'principal/editar_publicacion.html', {'form': form})
 
+@login_required(login_url='/login')
 def nueva_publicacion(request):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
-            #post.autor = request.user
+            post.autor = request.user
             post.save()
             return redirect('principal.views.detalle_publicacion', pk=post.pk)
     else:
         form = PostForm()
     return render(request, 'principal/nueva_publicacion.html', {'form': form})
+    
 
-
+@login_required(login_url='/login')
 def eliminar_publicacion(request, pk):
     note = get_object_or_404(Instrumento, pk=pk).delete()
     return render(request, 'principal/eliminar_publicacion.html')
 
+
 def ingresar(request):
-    if not request.user.is_anonymous():
-        return HttpResponseRedirect('/')
+    #if not request.user.is_anonymous():
+     #   return HttpResponseRedirect('/')
     if request.method == "POST":
         formulario = AuthenticationForm(request.POST)
         if formulario.is_valid:
@@ -74,7 +78,7 @@ def ingresar(request):
         return render(request,'principal/login.html', {'formulario': formulario})
 
 
-@login_required(login_url='/ingresar')
+@login_required(login_url='/')
 def salir(request):
     logout(request)
     return HttpResponseRedirect('/')
